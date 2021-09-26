@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.ganfan</groupId>
+    <artifactId>springboot-basic-dependencies</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <!-- 打包方式-->
+    <packaging>pom</packaging>
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <spring-context.version>5.2.8.RELEASE</spring-context.version>
+        <springboot.version>2.3.2.RELEASE</springboot.version>
+        <spring-boot-admin.version>2.2.3</spring-boot-admin.version>
+        <apache-commons-lang3.version>3.8.1</apache-commons-lang3.version>
+        <javax.validation.version>2.0.1.Final</javax.validation.version>
+        <sentinel.version>1.8.0</sentinel.version>
+        <springSecurityJwt.version>1.1.1.RELEASE</springSecurityJwt.version>
+        <hutool.version>5.3.7</hutool.version>
+        <mybatisplus.version>3.3.2</mybatisplus.version>
+        <mybatis.boot.version>2.1.3</mybatis.boot.version>
+        <wexin-pay.version>3.8.0</wexin-pay.version>
+        <wexin-miniapp.version>3.8.0</wexin-miniapp.version>
+        <swagger.version>2.9.2</swagger.version>
+        <aliyun-sms.version>1.1.0</aliyun-sms.version>
+        <aliyun-sdk.version>4.3.8</aliyun-sdk.version>
+        <qcloud-version>5.4.4</qcloud-version>
+        <oss-version>2.5.0</oss-version>
+        <servlet.version>4.0.1</servlet.version>
+        <qrcode.version>1.3.1</qrcode.version>
+        <mapstruct.version>1.4.1.Final</mapstruct.version>
+        <hibernate-validator.version>5.0.2.Final</hibernate-validator.version>
+        <oss.version>1.0.0.RELEASE</oss.version>
+    </properties>
+
+    <!-- 被管理的依赖-->
+    <dependencyManagement>
+        <!-- 把Spring Boot的父依赖加入管理，就等于把项目的Spring Boot所有的官方starter纳入了管理-->
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-parent</artifactId>
+                <version>${springboot.version}</version>
+                <!-- maven中配置引用关系，通过<type>pom</type>和<scope>import</scope> -->
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${spring-context.version}</version>
+            </dependency>
+
+            <!--swagger2-->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${apache-commons-lang3.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${springboot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.validation</groupId>
+                <artifactId>validation-api</artifactId>
+                <version>${javax.validation.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${apache-commons-lang3.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.ganfan</groupId>
+                <artifactId>springboot-basic-common</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-commons</artifactId>
+                <version>${springboot.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-processor</artifactId>
+                <version>${mapstruct.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct</artifactId>
+                <version>${mapstruct.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-validator</artifactId>
+                <version>${hibernate-validator.version}</version>
+            </dependency>
+
+            <!--<dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-dependencies</artifactId>
+                <version>${spring-boot-admin.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.csp</groupId>
+                <artifactId>sentinel-parent</artifactId>
+                <version>${sentinel.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-jwt</artifactId>
+                <version>${springSecurityJwt.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis.boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatisplus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-generator</artifactId>
+                <version>${mybatisplus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.binarywang</groupId>
+                <artifactId>weixin-java-pay</artifactId>
+                <version>${wexin-pay.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.binarywang</groupId>
+                <artifactId>weixin-java-miniapp</artifactId>
+                <version>${wexin-miniapp.version}</version>
+            </dependency>
+
+            &lt;!&ndash; aliyun sms &ndash;&gt;
+            <dependency>
+                <groupId>com.aliyun</groupId>
+                <artifactId>aliyun-java-sdk-dysmsapi</artifactId>
+                <version>${aliyun-sms.version}</version>
+            </dependency>
+            &lt;!&ndash; https://mvnrepository.com/artifact/com.aliyun/aliyun-java-sdk-core &ndash;&gt;
+            <dependency>
+                <groupId>com.aliyun</groupId>
+                <artifactId>aliyun-java-sdk-core</artifactId>
+                <version>${aliyun-sdk.version}</version>
+            </dependency>
+            &lt;!&ndash;  一定要先拉取项目通过 mvn install 安装到本地  &ndash;&gt;
+            &lt;!&ndash;<dependency>
+                <groupId>cn.felord</groupId>
+                <artifactId>oss-spring-boot-starter</artifactId>
+                <version>${oss.version}</version>
+            </dependency>&ndash;&gt;
+            <dependency>
+                <groupId>com.qcloud</groupId>
+                <artifactId>cos_api</artifactId>
+                <version>${qcloud-version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.aliyun.oss</groupId>
+                <artifactId>aliyun-sdk-oss</artifactId>
+                <version>${oss-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>${servlet.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+            &lt;!&ndash; qrCode tool &ndash;&gt;
+            <dependency>
+                <groupId>org.iherus</groupId>
+                <artifactId>qrext4j</artifactId>
+                <version>${qrcode.version}</version>
+            </dependency>
+           -->
+
+        </dependencies>
+    </dependencyManagement>
+
+
+</project>

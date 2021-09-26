@@ -1,0 +1,4 @@
+basic-dependencies 是一个依赖版本管理的模块，负责其它模块的依赖版本和技术选型管理，
+其它模块的依赖都应该来自于basic-dependencies，这样能做到依赖版本的集中管理。
+
+basic-dependencies 只有一个pom.xml文件，打包方式是pom，所有依赖被dependencyManagement管理。
